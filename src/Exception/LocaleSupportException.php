@@ -1,4 +1,4 @@
-<?php namespace Localize\Exceptions;
+<?php namespace Localize\Exception;
 
 use RuntimeException;
 
