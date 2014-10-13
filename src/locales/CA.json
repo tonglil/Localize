@@ -1,0 +1,64 @@
+{
+  "phone_number": {
+    "regex": "/^(\\d{3})\\D?(\\d{3})\\D?(\\d{4})/",
+    "regex-replace": "$1-$2-$3"
+  },
+  "postal_code": {
+    "regex": "/^([A-Z][0-9][A-Z]) ?([0-9][A-Z][0-9])$/",
+    "regex-replace": "$1 $2"
+  },
+  "regions": [
+    {
+      "long": "Alberta",
+      "short": "AB"
+    },
+    {
+      "long": "British Columbia",
+      "short": "BC"
+    },
+    {
+      "long": "Manitoba",
+      "short": "MB"
+    },
+    {
+      "long": "New Brunswick",
+      "short": "NB"
+    },
+    {
+      "long": "Newfoundland and Labrador",
+      "short": "NL"
+    },
+    {
+      "long": "Northwest Territories",
+      "short": "NT"
+    },
+    {
+      "long": "Nova Scotia",
+      "short": "NS"
+    },
+    {
+      "long": "Nunavut",
+      "short": "NU"
+    },
+    {
+      "long": "Ontario",
+      "short": "ON"
+    },
+    {
+      "long": "Prince Edward Island",
+      "short": "PE"
+    },
+    {
+      "long": "Quebec",
+      "short": "QC"
+    },
+    {
+      "long": "Saskatchewan",
+      "short": "SK"
+    },
+    {
+      "long": "Yukon",
+      "short": "YT"
+    }
+  ]
+}
