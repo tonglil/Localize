@@ -74,8 +74,13 @@ class Localize
 
     private function formatter($type, $input)
     {
-        if (preg_match($this->mapping[$type]['regex'], $input)) {
-            return preg_replace($this->mapping[$type]['regex'], $this->mapping[$type]['regex-replace'], $input);
+        return $this->regex($input, $this->mapping[$type]['regex'], $this->mapping[$type]['regex-replace']);
+    }
+
+    public function regex($input, $regex, $replace)
+    {
+        if (preg_match($regex, $input)) {
+            return preg_replace($regex, $replace, $input);
         } else {
             return null;
         }
