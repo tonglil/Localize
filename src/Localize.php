@@ -86,6 +86,21 @@ class Localize
         }
     }
 
+    public function regexMany($input, array $regex, array $replace)
+    {
+        if (count($regex) != count($replace)) {
+            throw new UnmatchedRegexException('The number of replacements (' . count($replace) . ') do not match the number of regular expressions (' . count($regex) . ')');
+        }
+
+        foreach ($regex as $key => $rule) {
+            if ($match = $this->regex($input, $rule, $replace[$key])) {
+                return $match;
+            }
+        }
+
+        return null;
+    }
+
     public function country($country, $short = false)
     {
         $this->mapping = array_merge($this->mapping, [
