@@ -3,6 +3,7 @@
 use Localize\Exception\LocaleParseException;
 use Localize\Exception\LocaleSupportException;
 use Localize\Exception\LocaleNotSetException;
+use Localize\Exception\UnmatchedRegexException;
 
 class Localize
 {
