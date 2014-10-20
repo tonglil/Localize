@@ -50,7 +50,7 @@ $address = [
     'address'       => ‘525 Seymour Street’,
     'city'          => ‘Vancouver’,
     'region'        => $localize->region(‘british columbia’, true),
-    'postal_code'   => $localize->postal_code(‘v6b3h7’),
+    'postal_code'   => $localize->postalCode(‘v6b3h7’),
     'country'       => $localize->country(‘CANADA’, false),
     'phone'         => $localize->phone(‘5555555555’),
 ];
@@ -66,7 +66,7 @@ echo $localize->region(‘ontario’, false);   // Ontario
 
 // Postal code and phone number will attempt to massage a limit amount of formatting into the standard output.
 echo $localize->phone(‘555 555-5555’);      // 555-555-5555
-echo $localize->postal_code(‘V6b 3h7’);     // V6B 3H7
+echo $localize->postalCode(‘V6b 3h7’);     // V6B 3H7
 
 // Basic validation is performed; if a match is not found and can not be massaged to a format, null is returned.
 var_dump($localize->phone(‘abc-def-gehi’)); // null

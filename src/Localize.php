@@ -8,17 +8,18 @@ class Localize
 {
     private $locale;
 
-    private $mapping = [];
+    private $mapping = array();
 
-    private $countries = [
-        [
+    private $countries = array(
+        array(
             'short' => 'CA',
             'long' => 'Canada',
-        ], [
+        ),
+        array(
             'short' => 'US',
             'long' => 'United States',
-        ]
-    ];
+        ),
+    );
 
     public function __construct($locale = 'CA')
     {
@@ -74,7 +75,7 @@ class Localize
 
     private function formatter($type, $input)
     {
-        return $this->regex($input, $this->mapping[$type]['regex'], $this->mapping[$type]['regex-replace']);
+        return $this->regex($input, $this->mapping[$type]['regex'], $this->mapping[$type]['format']);
     }
 
     public function regex($input, $regex, $replace)
@@ -84,6 +85,17 @@ class Localize
         } else {
             return null;
         }
+    }
+
+    public function regexManyToOne($input, array $regex, $replace)
+    {
+        foreach ($regex as $rule) {
+            if ($match = $this->regex($input, $rule, $replace)) {
+                return $match;
+            }
+        }
+
+        return null;
     }
 
     public function regexMany($input, array $regex, array $replace)
@@ -115,13 +127,13 @@ class Localize
         return $this->comparator('regions', $region, $short);
     }
 
-    public function postal_code($postal_code)
+    public function postalCode($postalCode)
     {
-        return $this->formatter('postal_code', strtoupper($postal_code));
+        return $this->formatter('postalCode', strtoupper($postalCode));
     }
 
     public function phone($phone)
     {
-        return $this->formatter('phone_number', $phone);
+        return $this->formatter('phoneNumber', $phone);
     }
 }

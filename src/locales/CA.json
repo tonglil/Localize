@@ -1,11 +1,11 @@
 {
-  "phone_number": {
-    "regex": "/^(\\d{3})\\D?(\\d{3})\\D?(\\d{4})/",
-    "regex-replace": "$1-$2-$3"
+  "phoneNumber": {
+    "regex": "/^\\D?1?\\D?\\(?(\\d{3})\\)?\\D?(\\d{3})\\D?(\\d{4})$/",
+    "format": "$1-$2-$3"
   },
-  "postal_code": {
+  "postalCode": {
     "regex": "/^([A-Z][0-9][A-Z]) ?([0-9][A-Z][0-9])$/",
-    "regex-replace": "$1 $2"
+    "format": "$1 $2"
   },
   "regions": [
     {
