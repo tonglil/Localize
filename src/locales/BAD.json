@@ -1,0 +1,12 @@
+{
+  "regions": [
+    {
+      "long": "Saskatchewan",
+      "short": "SK"
+    }
+    {
+      "long": "Yukon",
+      "short": "YT"
+    }
+  ]
+}
