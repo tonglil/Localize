@@ -1,6 +1,8 @@
 # Localize
 
 [![Build Status](https://travis-ci.org/tonglil/Localize.svg)](https://travis-ci.org/tonglil/Localize)
+[![Coverage Status](https://img.shields.io/coveralls/tonglil/Localize.svg)](https://coveralls.io/r/tonglil/Localize)
+
 [![Total Downloads](https://poser.pugx.org/tonglil/Localize/downloads.svg)](https://packagist.org/packages/tonglil/Localize)
 [![Latest Stable Version](https://poser.pugx.org/tonglil/Localize/v/stable.svg)](https://packagist.org/packages/tonglil/Localize)
 [![Latest Unstable Version](https://poser.pugx.org/tonglil/Localize/v/unstable.svg)](https://packagist.org/packages/tonglil/Localize)

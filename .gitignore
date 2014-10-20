@@ -1,7 +1,10 @@
+### CI ###
+
+build/
+
 ### Composer ###
 
 vendor/
-
 
 ### OS X ###
 
