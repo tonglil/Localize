@@ -1,10 +1,10 @@
 # Localize
 
-[![Build Status](https://travis-ci.org/tonglil/localize.svg)](https://travis-ci.org/tonglil/localize)
-[![Total Downloads](https://poser.pugx.org/tonglil/localize/downloads.svg)](https://packagist.org/packages/tonglil/localize)
-[![Latest Stable Version](https://poser.pugx.org/tonglil/localize/v/stable.svg)](https://packagist.org/packages/tonglil/localize)
-[![Latest Unstable Version](https://poser.pugx.org/tonglil/localize/v/unstable.svg)](https://packagist.org/packages/tonglil/localize)
-[![License](https://poser.pugx.org/tonglil/localize/license.svg)](https://packagist.org/packages/tonglil/localize)
+[![Build Status](https://travis-ci.org/tonglil/Localize.svg)](https://travis-ci.org/tonglil/Localize)
+[![Total Downloads](https://poser.pugx.org/tonglil/Localize/downloads.svg)](https://packagist.org/packages/tonglil/Localize)
+[![Latest Stable Version](https://poser.pugx.org/tonglil/Localize/v/stable.svg)](https://packagist.org/packages/tonglil/Localize)
+[![Latest Unstable Version](https://poser.pugx.org/tonglil/Localize/v/unstable.svg)](https://packagist.org/packages/tonglil/Localize)
+[![License](https://poser.pugx.org/tonglil/Localize/license.svg)](https://packagist.org/packages/tonglil/Localize)
 
 A library to localize location-based attributes based on regular expressions.
 
