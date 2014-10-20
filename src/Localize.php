@@ -116,9 +116,9 @@ class Localize
 
     public function country($country, $short = false)
     {
-        $this->mapping = array_merge($this->mapping, [
+        $this->mapping = array_merge($this->mapping, array(
             'countries' => $this->countries,
-        ]);
+        ));
 
         return $this->comparator('countries', $country, $short);
     }
