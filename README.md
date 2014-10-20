@@ -1,7 +1,8 @@
 # Localize
 
-[![Build Status](https://travis-ci.org/tonglil/Localize.svg)](https://travis-ci.org/tonglil/Localize)
+[![Build Status](https://img.shields.io/travis/tonglil/Localize.svg)](https://travis-ci.org/tonglil/Localize)
 [![Coverage Status](https://img.shields.io/coveralls/tonglil/Localize.svg)](https://coveralls.io/r/tonglil/Localize)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/tonglil/Localize.svg)](https://scrutinizer-ci.com/g/tonglil/Localize/?branch=master)
 
 [![Total Downloads](https://poser.pugx.org/tonglil/Localize/downloads.svg)](https://packagist.org/packages/tonglil/Localize)
 [![Latest Stable Version](https://poser.pugx.org/tonglil/Localize/v/stable.svg)](https://packagist.org/packages/tonglil/Localize)
@@ -43,35 +44,38 @@ require 'vendor/autoload.php';
 ```php
 use Localize\Localize;
 
-// Create an localize instance.
+// Create a new localize instance.
 $localize = new Localize();
 // Set the locale using a two digit ISO country code.
-$localize->setLocale(‘CA’);
+$localize->setLocale('CA');
 
 $address = [
-    'address'       => ‘525 Seymour Street’,
-    'city'          => ‘Vancouver’,
-    'region'        => $localize->region(‘british columbia’, true),
-    'postal_code'   => $localize->postalCode(‘v6b3h7’),
-    'country'       => $localize->country(‘CANADA’, false),
-    'phone'         => $localize->phone(‘5555555555’),
+    'address'       => '525 Seymour Street',
+    'city'          => 'Vancouver',
+    'region'        => $localize->region('british columbia', true),
+    'postal_code'   => $localize->postalCode('v6b3h7'),
+    'country'       => $localize->country('CANADA', false),
+    'phone'         => $localize->phone('5555555555'),
 ];
 
-echo $address[‘region’];        // BC
-echo $address[‘postal_code’];   // V6B 3H7
-echo $address[‘country’];       // Canada
-echo $address[‘phone’];         // 555-555-5555
+echo $address['region'];        // BC
+echo $address['postal_code'];   // V6B 3H7
+echo $address['country'];       // Canada
+echo $address['phone'];         // 555-555-5555
 
-// Region and country accept a second parameter that formats the value to its short version when true, or uses the long version when omitted.
-echo $localize->region(‘ontario’, true);    // ON
-echo $localize->region(‘ontario’, false);   // Ontario
+// Region and country accept a second parameter that formats the value to
+// its short version when true, or uses the long version when omitted.
+echo $localize->region('ontario', true);    // ON
+echo $localize->region('ontario', false);   // Ontario
 
-// Postal code and phone number will attempt to massage a limit amount of formatting into the standard output.
-echo $localize->phone(‘555 555-5555’);      // 555-555-5555
-echo $localize->postalCode(‘V6b 3h7’);     // V6B 3H7
+// Postal code and phone number will attempt to massage a limit amount of
+// formatting into the standard output.
+echo $localize->phone('555 555-5555');      // 555-555-5555
+echo $localize->postalCode('V6b 3h7');      // V6B 3H7
 
-// Basic validation is performed; if a match is not found and can not be massaged to a format, null is returned.
-var_dump($localize->phone(‘abc-def-gehi’)); // null
+// Basic validation is performed; if a match is not found and can not be
+// massaged to a format, null is returned.
+var_dump($localize->phone('abc-def-gehi')); // null
 ```
 
 ## Locales
