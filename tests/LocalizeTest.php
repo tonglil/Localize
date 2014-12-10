@@ -1,8 +1,6 @@
 <?php namespace Localize\Tests;
 
 use Localize\Localize;
-use Localize\Exception\LocaleParseException;
-use Localize\Exception\LocaleSupportException;
 
 class LocalizeTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,24 +24,14 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
 
     public function testSetLocaleParseException()
     {
-        try {
-            $this->localize->setLocale('BAD');
-        } catch (LocaleParseException $e) {
-            return;
-        }
-
-        $this->fail('An expected exception (LocaleParseException) was not raised.');
+        $this->setExpectedException('Localize\Exception\LocaleParseException');
+        $this->localize->setLocale('BAD');
     }
 
     public function testSetLocaleSupportException()
     {
-        try {
-            $this->localize->setLocale('NONE');
-        } catch (LocaleSupportException $e) {
-            return;
-        }
-
-        $this->fail('An expected exception (LocaleSupportException) was not raised.');
+        $this->setExpectedException('Localize\Exception\LocaleSupportException');
+        $this->localize->setLocale(null);
     }
 
     public function testGetLocale()
