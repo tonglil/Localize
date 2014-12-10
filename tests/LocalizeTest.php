@@ -90,4 +90,18 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
         $result = $this->localize->regexMany('abc def ghij oops', $regexes, $replaces);
         $this->assertEquals(null, $result);
     }
+
+    public function testUnmatchedRegexException()
+    {
+        $regexes = array(
+            '/^(\d{3}) (\d{3}) (\d{4})$/',
+            '/^(\w{3}) (\w{3}) (\w{4})$/',
+        );
+        $replaces = array(
+            '($1) $2-$3',
+        );
+
+        $this->setExpectedException('Localize\Exception\UnmatchedRegexException');
+        $this->localize->regexMany('555 555 5555', $regexes, $replaces);
+    }
 }
