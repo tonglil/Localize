@@ -2,7 +2,6 @@
 
 use Localize\Exception\LocaleParseException;
 use Localize\Exception\LocaleSupportException;
-use Localize\Exception\LocaleNotSetException;
 use Localize\Exception\UnmatchedRegexException;
 
 class Localize
@@ -50,11 +49,7 @@ class Localize
 
     public function getLocale()
     {
-        if ($this->locale) {
-            return $this->locale;
-        } else {
-            throw new LocaleNotSetException('The locale is not set');
-        }
+        return $this->locale;
     }
 
     private function comparator($type, $input, $short = false)

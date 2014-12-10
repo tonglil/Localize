@@ -32,7 +32,7 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
             return;
         }
 
-        $this->fail('An expected exception (LocaleParseException) has not been raised.');
+        $this->fail('An expected exception (LocaleParseException) was not raised.');
     }
 
     public function testSetLocaleSupportException()
@@ -43,7 +43,7 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
             return;
         }
 
-        $this->fail('An expected exception (LocaleSupportException) has not been raised.');
+        $this->fail('An expected exception (LocaleSupportException) was not raised.');
     }
 
     public function testGetLocale()
