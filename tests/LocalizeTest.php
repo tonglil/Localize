@@ -77,5 +77,29 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->localize->regexManyToOne('555-555-5555', $regexes, $replaces);
         $this->assertEquals('(555) 555-5555', $result);
+
+        $result = $this->localize->regexManyToOne('should get null', $regexes, $replaces);
+        $this->assertEquals(null, $result);
+    }
+
+    public function testRegexMany()
+    {
+        $regexes = array(
+            '/^(\d{3}) (\d{3}) (\d{4})$/',
+            '/^(\w{3}) (\w{3}) (\w{4})$/',
+        );
+        $replaces = array(
+            '($1) $2-$3',
+            '$1$2$3',
+        );
+
+        $result = $this->localize->regexMany('555 555 5555', $regexes, $replaces);
+        $this->assertEquals('(555) 555-5555', $result);
+
+        $result = $this->localize->regexMany('abc def ghij', $regexes, $replaces);
+        $this->assertEquals('abcdefghij', $result);
+
+        $result = $this->localize->regexMany('abc def ghij oops', $regexes, $replaces);
+        $this->assertEquals(null, $result);
     }
 }
