@@ -1,8 +1,6 @@
 <?php namespace Localize\Tests;
 
 use Localize\Localize;
-use Localize\Exception\LocaleParseException;
-use Localize\Exception\LocaleSupportException;
 
 class LocalizeTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,24 +24,14 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
 
     public function testSetLocaleParseException()
     {
-        try {
-            $this->localize->setLocale('BAD');
-        } catch (LocaleParseException $e) {
-            return;
-        }
-
-        $this->fail('An expected exception (LocaleParseException) was not raised.');
+        $this->setExpectedException('Localize\Exception\LocaleParseException');
+        $this->localize->setLocale('BAD');
     }
 
     public function testSetLocaleSupportException()
     {
-        try {
-            $this->localize->setLocale('NONE');
-        } catch (LocaleSupportException $e) {
-            return;
-        }
-
-        $this->fail('An expected exception (LocaleSupportException) was not raised.');
+        $this->setExpectedException('Localize\Exception\LocaleSupportException');
+        $this->localize->setLocale(null);
     }
 
     public function testGetLocale()
@@ -77,5 +65,43 @@ class LocalizeTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->localize->regexManyToOne('555-555-5555', $regexes, $replaces);
         $this->assertEquals('(555) 555-5555', $result);
+
+        $result = $this->localize->regexManyToOne('should get null', $regexes, $replaces);
+        $this->assertEquals(null, $result);
+    }
+
+    public function testRegexMany()
+    {
+        $regexes = array(
+            '/^(\d{3}) (\d{3}) (\d{4})$/',
+            '/^(\w{3}) (\w{3}) (\w{4})$/',
+        );
+        $replaces = array(
+            '($1) $2-$3',
+            '$1$2$3',
+        );
+
+        $result = $this->localize->regexMany('555 555 5555', $regexes, $replaces);
+        $this->assertEquals('(555) 555-5555', $result);
+
+        $result = $this->localize->regexMany('abc def ghij', $regexes, $replaces);
+        $this->assertEquals('abcdefghij', $result);
+
+        $result = $this->localize->regexMany('abc def ghij oops', $regexes, $replaces);
+        $this->assertEquals(null, $result);
+    }
+
+    public function testUnmatchedRegexException()
+    {
+        $regexes = array(
+            '/^(\d{3}) (\d{3}) (\d{4})$/',
+            '/^(\w{3}) (\w{3}) (\w{4})$/',
+        );
+        $replaces = array(
+            '($1) $2-$3',
+        );
+
+        $this->setExpectedException('Localize\Exception\UnmatchedRegexException');
+        $this->localize->regexMany('555 555 5555', $regexes, $replaces);
     }
 }
