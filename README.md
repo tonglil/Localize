@@ -4,16 +4,26 @@
 [![Coverage Status](https://img.shields.io/coveralls/tonglil/Localize.svg)](https://coveralls.io/r/tonglil/Localize)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/tonglil/Localize.svg)](https://scrutinizer-ci.com/g/tonglil/Localize/?branch=master)
 
-[![Total Downloads](https://poser.pugx.org/tonglil/Localize/downloads.svg)](https://packagist.org/packages/tonglil/Localize)
-[![Latest Stable Version](https://poser.pugx.org/tonglil/Localize/v/stable.svg)](https://packagist.org/packages/tonglil/Localize)
-[![Latest Unstable Version](https://poser.pugx.org/tonglil/Localize/v/unstable.svg)](https://packagist.org/packages/tonglil/Localize)
-[![License](https://poser.pugx.org/tonglil/Localize/license.svg)](https://packagist.org/packages/tonglil/Localize)
+[![Total Downloads](https://poser.pugx.org/tonglil/localize/downloads.svg)](https://packagist.org/packages/tonglil/Localize)
+[![Latest Stable Version](https://poser.pugx.org/tonglil/localize/v/stable.svg)](https://packagist.org/packages/tonglil/Localize)
+[![Latest Unstable Version](https://poser.pugx.org/tonglil/localize/v/unstable.svg)](https://packagist.org/packages/tonglil/Localize)
+[![License](https://poser.pugx.org/tonglil/localize/license.svg)](https://packagist.org/packages/tonglil/Localize)
 
-A library to localize location-based attributes based on regular expressions.
+A library to localize location-based attributes and coerce values into desired formats based on regular expressions.
 
-Unit tests and more locales to come. Please feel free to submit a PR if you would like to fill the missing holes!
+Note: *this is not a translation or i18n library.*
 
-## Install Using Composer
+More locales to come - please feel free to submit a PR if you would like to help fill the missing holes!
+
+## Contents
+
+- [Installation](#install)
+- [Locales](#locales)
+- [Formats](#formats)
+- [Examples](#examples)
+- [API documentation](http://tonglil.github.io/Localize/).
+
+## Install
 
 The recommended way to install is through [Composer](http://getcomposer.org).
 
@@ -22,7 +32,7 @@ Update your project's composer.json file to include Localize:
 ```json
 {
     "require": {
-        "tonglil/localize": "dev-master"
+        "tonglil/localize": "1.*"
     }
 }
 ```
@@ -30,7 +40,7 @@ Update your project's composer.json file to include Localize:
 Then update the project dependencies to include this library:
 
 ```bash
-composer update
+composer update tonglil/localize
 ```
 
 After installing, you need to require Composer's autoloader:
@@ -38,6 +48,31 @@ After installing, you need to require Composer's autoloader:
 ```php
 require 'vendor/autoload.php';
 ```
+
+## Locales
+
+Country codes are based on [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1).
+
+Locales currently supported:
+- CA
+
+Planned locales:
+- US
+- FR
+- GB
+- AU
+- CN
+
+Locales are stored in [src/locales](src/locales) directory.
+
+## Formats
+
+The default formats currently supported:
+
+- Region (province/state)
+- Post code (postal/zip code)
+- Country name
+- Phone number (next iteration will be [E.164 formatting](http://en.wikipedia.org/wiki/E.164))
 
 ## Examples
 
@@ -77,19 +112,3 @@ echo $localize->postalCode('V6b 3h7');      // V6B 3H7
 // massaged to a format, null is returned.
 var_dump($localize->phone('abc-def-gehi')); // null
 ```
-
-## Locales
-
-Locales currently supported:
-- CA
-
-Locales are stored in [src/locales](src/locales) directory.
-
-## Formats
-
-Formats currently supported:
-
-- Region (province/state)
-- Post code (postal/zip code)
-- Country name
-- Phone number

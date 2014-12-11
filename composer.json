@@ -1,7 +1,7 @@
 {
   "name" : "tonglil/localize",
   "type" : "library",
-  "description" : "A library to localize location-based attributes based on regular expressions.",
+  "description" : "A library to localize location-based attributes and coerce values into desired formats based on regular expressions.",
   "homepage" : "https://github.com/tonglil/Localize",
   "license" : "MIT",
   "authors": [
@@ -11,7 +11,7 @@
     }
   ],
   "keywords": [
-    "localize", "formatting", "parsing", "filtering"
+    "localize", "localization", "formatting", "parsing", "filtering", "regular expression", "regex", "standard"
   ],
   "require" : {
     "php" : ">=5.3.0"
