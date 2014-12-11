@@ -12,14 +12,13 @@ $iterator = Finder::create()
 
 $versions = GitVersionCollection::create($dir)
     ->add('master', 'master branch')
-    ->add('1.0', '1.0 branch')
-    ->addFromTags('v1.0.*');
+    ->addFromTags('v*.*');
 
 $options = array(
     'versions'             => $versions,
     'title'                => 'Localize API',
-    'build_dir'            => __DIR__ . '/doc/%version%',
-    'cache_dir'            => __DIR__ . '/build/cache/Localize/%version%',
+    'build_dir'            => __DIR__ . '/build/docs/%version%',
+    'cache_dir'            => __DIR__ . '/build/cache/docs/%version%',
     'default_opened_level' => 2,
 );
 
