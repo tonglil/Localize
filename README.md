@@ -52,6 +52,7 @@ require 'vendor/autoload.php';
 ## Locales
 
 Country codes are based on [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1).
+Phone numbers can be formatted to [E.164 formatting](http://en.wikipedia.org/wiki/E.164)
 
 Locales currently supported:
 - CA
@@ -72,7 +73,7 @@ The default formats currently supported:
 - Region (province/state)
 - Post code (postal/zip code)
 - Country name
-- Phone number (next iteration will be [E.164 formatting](http://en.wikipedia.org/wiki/E.164))
+- Phone number (regional "de-facto" formatting or E.164 formatting)
 
 ## Examples
 
@@ -98,15 +99,17 @@ echo $address['postal_code'];   // V6B 3H7
 echo $address['country'];       // Canada
 echo $address['phone'];         // 555-555-5555
 
-// Region and country accept a second parameter that formats the value to
-// its short version when true, or uses the long version when omitted.
+// Region and country both accept a second parameter that formats the value to
+// its short version when true, otherwise uses the long version by default.
 echo $localize->region('ontario', true);    // ON
 echo $localize->region('ontario', false);   // Ontario
 
 // Postal code and phone number will attempt to massage a limit amount of
 // formatting into the standard output.
-echo $localize->phone('555 555-5555');      // 555-555-5555
-echo $localize->postalCode('V6b 3h7');      // V6B 3H7
+echo $localize->phone('555 555-5555');                  // 555-555-5555 regional "de-facto" formatting
+echo $localize->phoneE164('+1 555 555-5555');           // 011-1-555-555-5555 full E.164 formatting
+echo $localize->phoneE164('+1 555 555-5555', false);    // +1-555-555-5555 common E.164 formatting
+echo $localize->postalCode('V6b 3h7');                  // V6B 3H7
 
 // Basic validation is performed; if a match is not found and can not be
 // massaged to a format, null is returned.
