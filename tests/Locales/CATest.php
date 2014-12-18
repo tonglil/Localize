@@ -118,4 +118,32 @@ class CATest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->localize->phone('not a phone number'));
         $this->assertNull($this->localize->phone('abc-def-ghij'));
     }
+
+    public function testPhoneE164Full()
+    {
+        $match = '011-1-123-456-7890';
+        $this->assertEquals($match, $this->localize->phoneE164('1234567890'));
+        $this->assertEquals($match, $this->localize->phoneE164('123 456 7890'));
+        $this->assertEquals($match, $this->localize->phoneE164('123.456-7890'));
+        $this->assertEquals($match, $this->localize->phoneE164('(123) 456-7890'));
+        $this->assertEquals($match, $this->localize->phoneE164('+1 (123) 456-7890'));
+        $this->assertEquals($match, $this->localize->phoneE164('1 1234567890'));
+    }
+
+    public function testPhoneE164CountryOnly()
+    {
+        $match = '+1-123-456-7890';
+        $this->assertEquals($match, $this->localize->phoneE164('1234567890', false));
+        $this->assertEquals($match, $this->localize->phoneE164('123 456 7890', false));
+        $this->assertEquals($match, $this->localize->phoneE164('123.456-7890', false));
+        $this->assertEquals($match, $this->localize->phoneE164('(123) 456-7890', false));
+        $this->assertEquals($match, $this->localize->phoneE164('+1 (123) 456-7890', false));
+        $this->assertEquals($match, $this->localize->phoneE164('1 1234567890', false));
+    }
+
+    public function testPhoneE164ull()
+    {
+        $this->assertNull($this->localize->phoneE164('not a phone number'));
+        $this->assertNull($this->localize->phoneE164('abc-def-ghij'));
+    }
 }
