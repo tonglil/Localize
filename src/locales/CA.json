@@ -3,6 +3,10 @@
     "regex": "/^\\D?1?\\D?\\(?(\\d{3})\\)?\\D?(\\d{3})\\D?(\\d{4})$/",
     "format": "$1-$2-$3"
   },
+  "phonePrefixes": {
+    "country": "1",
+    "international": "011"
+  },
   "postalCode": {
     "regex": "/^([A-Z][0-9][A-Z]) ?([0-9][A-Z][0-9])$/",
     "format": "$1 $2"

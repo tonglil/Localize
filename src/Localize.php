@@ -208,12 +208,32 @@ class Localize
     }
 
     /**
-     * Find and format the given phone number.
+     * Find and format the given phone number into the "common" local format.
      * @param  string       $phone  The given input
      * @return string|null          The formatted phone number if found, otherwise null
      */
     public function phone($phone)
     {
         return $this->formatter('phoneNumber', $phone);
+    }
+
+    /**
+     * Find and format the given phone number into E.164 formatting.
+     * @param  string       $phone  The given input
+     * @param  boolean      $full   If the number should include the international calling prefix
+     * @return string|null          The formatted phone number if found, otherwise null
+     */
+    public function phoneE164($phone, $full = true)
+    {
+        $number = $this->formatter('phoneNumber', $phone);
+
+        if (is_null($number)) {
+            return null;
+        }
+
+        $country = $this->mapping['phonePrefixes']['country'];
+        $international = $this->mapping['phonePrefixes']['international'];
+
+        return $full ? $international . '-' . $country . '-' . $number : '+' . $country . '-' . $number;
     }
 }
