@@ -9,6 +9,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/tonglil/localize/v/unstable.svg)](https://packagist.org/packages/tonglil/Localize)
 [![License](https://poser.pugx.org/tonglil/localize/license.svg)](https://packagist.org/packages/tonglil/Localize)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/3ab73b7b-5159-4bfe-8c85-2a15d03f9579/big.png)](https://insight.sensiolabs.com/projects/3ab73b7b-5159-4bfe-8c85-2a15d03f9579)
+
 A library to localize location-based attributes and coerce values into desired formats based on regular expressions.
 
 Note: *this is not a translation or i18n library.*
